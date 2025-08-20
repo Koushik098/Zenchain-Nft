@@ -1,43 +1,33 @@
-# 👋 Hi, I'm Koushik 
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
 
-🌐 Web3 Learner & Blockchain Developer | ZenChain Builder Applicant
-💡 Focused on ERC-20 Tokens, NFT Minting, and DApp Development
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
----
+/**
+ * @title ZenToken
+ * @dev Simple ERC-20 Token example, with initial supply and basic ownership.
+ */
+contract ZenToken is ERC20, Ownable {
 
-## 🛠️ Tech Stack
+    constructor(uint256 initialSupply) ERC20("ZenToken", "ZEN") {
+        _mint(msg.sender, initialSupply * 10 ** decimals());
+    }
 
-•Smart Contracts: Solidity, Hardhat
+    /**
+     * @notice Mint new tokens (only by owner)
+     * @param to address to receive tokens
+     * @param amount number of tokens to mint
+     */
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
 
-•Web3 Libraries: Ethers.js, Web3.js
-
-•Frontend: React, JavaScript, HTML, CSS
-
-•Tools & DevOps: Git, GitHub, VS Code
-
----
-
-🌱 Currently Working On
-
-•Deploying ERC-20 tokens on Ethereum testnets
-
-•Developing NFT minting DApps
-
-•Gaining hands-on experience with smart contracts
-
----
-
-## 🔗 Featured Projects
-
-### 🔷 [ERC-20 Token Contract](https://github.com/YOUR_GH_USERNAME/erc20-token)
-An example ERC-20 token built with Solidity and Hardhat.
-
-### 🔷 [NFT Minting DApp](https://github.com/YOUR_GH_USERNAME/nft-mint-dapp)
-A simple Web3 DApp that lets users mint NFTs directly to their wallets.
-
----
-
-## 📬 Let’s Connect
-
-- Twitter: [@NewKO20110815](https://twitter.com/NewKO20110815)  
-- Telegram: [@Koushik7364](https://t.me/Koushik7364)
+    /**
+     * @notice Burn tokens from your own balance
+     * @param amount number of tokens to burn
+     */
+    function burn(uint256 amount) public {
+        _burn(msg.sender, amount);
+    }
+}
