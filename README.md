@@ -29,10 +29,10 @@
 
 ## 🔗 Featured Projects
 
-### 🔷 [ERC-20 Token Contract](https://github.com/YOUR_GH_USERNAME/erc20-token)
+### 🔷 [ERC-20 Token Contract](https://github.com/Koushik098/Zenchain-Nft/blob/Dapps/README.md?plain=1)
 An example ERC-20 token built with Solidity and Hardhat.
 
-### 🔷 [NFT Minting DApp](https://github.com/YOUR_GH_USERNAME/nft-mint-dapp)
+### 🔷 [NFT Minting DApp](https://github.com/Koushik098/Zenchain-Nft/blob/Nft-mint/README.md?plain=1)
 A simple Web3 DApp that lets users mint NFTs directly to their wallets.
 
 ---
